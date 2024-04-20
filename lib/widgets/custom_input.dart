@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 
 class CustomInput extends StatelessWidget {
   final Transform icon;
+  final String placeholder;
   const CustomInput({
     required this.icon,
+    required this.placeholder,
     super.key,
   });
 
@@ -17,14 +19,22 @@ class CustomInput extends StatelessWidget {
         icon,
         SizedBox(width: currentWidth * 0.02),
         Container(
+          padding: const EdgeInsets.only(left: 10),
+          alignment: Alignment.centerLeft,
           width: currentWidth * 0.8,
-          height: currentHeight * 0.06,
+          height: currentHeight * 0.05,
           decoration: BoxDecoration(
             color: Colors.grey.shade200,
             borderRadius: BorderRadius.circular(8),
             border: Border.all(
               color: Colors.blue.shade800,
             ),
+          ),
+          child: Text(
+            placeholder,
+            style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                  color: Colors.blue.shade900,
+                ),
           ),
         )
       ],
